@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Qui débarrasse ?</title>
+        <style>
+        body {
+            text-align: center;
+            background-color: #0ECCB9;
+            font-family: sans-serif;
+        }
+        </style>
+    </head>
+    <body>
+        <input type="file" id="imageInput" accept="image/*" capture="environment" style="display: none;">
+        <h1>Qui débarrasse la table ?</h1>
+        <button onclick="document.getElementById('imageInput').click()">
+            Prendre une photo
+        </button>
+        <h5>Le <strong>résultat </strong>apparaitra ici ...</h5>
+        
+    </body>
+</html>
