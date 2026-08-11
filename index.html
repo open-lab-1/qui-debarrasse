@@ -6,18 +6,23 @@
         <style>
         body {
             text-align: center;
-            background-color: #074857;
-            font-family: sans-serif;
+            background-color: #58d1ef;
+            font-family: Arial;
         }
         </style>
     </head>
     <body>
-        <input type="file" id="imageInput" accept="image/*" capture="environment" style="display: none;">
+        <input type="file" id="imageInput" accept="image/*" capture="environment" style="display: none;" onchange="analyserTable()">
         <h1>Qui débarrasse la table ?</h1>
         <button onclick="document.getElementById('imageInput').click()">
             Prendre une photo
         </button>
-        <h5>Le <strong>résultat </strong>apparaitra ici ...</h5>
-        
+        <h5 id="resultat-photo">Le <strong>résultat </strong>apparaitra ici ...</h5>
+        <script>
+           function analyserTable() {
+            document.getElementById('resultat-photo').innerText = "Photo recu l'ia va l'analyser"
+           }
+        </script>
     </body>
+
 </html>
