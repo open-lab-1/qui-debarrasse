@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Qui débarrasse ?</title>
+        <style>
+        body {
+            text-align: center;
+            background-color: #58d1ef;
+            font-family: Arial;
+        }
+        </style>
+    </head>
+    <body>
+        <input type="file" id="imageInput" accept="image/*" capture="environment" style="display: none;" onchange="analyserTable()">
+        <h1>Qui débarrasse la table ?</h1>
+        <button onclick="document.getElementById('imageInput').click()">
+            Prendre une photo
+        </button>
+        <h5 id="resultat-photo">Le <strong>résultat </strong>apparaitra ici ...</h5>
+        <script>
+            async function analyserTable() {
+            document.getElementById('resultat-photo').innerText = "Photo recu l'ia va l'analyser"
+            ma_photo = document.getElementById('imageInput').files[0]
+            paquet = new FormData()
+            paquet.append('photo',ma_photo)
+            reponseServeur = await fetch('https://stunning-space-rotary-phone-wr697vq96xvx276j-5000.app.github.dev/analyser', {
+                method: 'POST',
+                body: paquet
+            })
+            donnees = await reponseServeur.json()
+            document.getElementById('resultat-photo').innerText = donnees.corvees
+
+           }
+        </script>
+    </body>
+
+</html>
